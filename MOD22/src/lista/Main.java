@@ -29,15 +29,12 @@ public class Main {
 
     public static void main(String[] args) {
         List<Pessoa> lista = new Pessoa().listaPessoas();
-        lista.stream().forEach(pessoa -> System.out.println(pessoa.getNome()));
+        lista.stream().forEach(feminino -> System.out.println(feminino.getNome()));
         System.out.println("\n### Lista Feminina ###\n");
-//        lista.stream().
-//                filter(pessoa -> pessoa.getGenero().equals("Feminino"))
-//                .forEach(pessoa -> System.out.println(pessoa.getNome()));
-        List<Pessoa> listaFeminina = new Pessoa().listaPessoas();
-        listaFeminina.stream().
+        lista.stream().
                 filter(pessoa -> pessoa.getGenero().equals("Feminino"))
-                .forEach(pessoa -> System.out.println(pessoa.getNome()));
+                .forEach(feminino -> System.out.println(feminino.getNome()));
+
     }
 
 

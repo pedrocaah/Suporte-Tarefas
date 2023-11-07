@@ -9,10 +9,22 @@ import java.util.List;
 public class test {
     @Test
     public void testando() {
-        List<Pessoa> listaPessoas = new Pessoa().listaPessoas();
-        Assert.assertEquals("Feminino", listaPessoas.stream().filter(pessoa -> pessoa.getGenero().equals("Feminino")));
+        List<Pessoa> lista = new Pessoa().listaPessoas();
+//        lista.stream().forEach(feminino -> System.out.println(feminino.getNome()));
+//        System.out.println("\n### Lista Feminina ###\n");
+        lista.stream().
+                filter(pessoa -> pessoa.getGenero().equals("Feminino"));
+//                .forEach(feminino -> System.out.println(feminino.getNome()));
+        for (Pessoa feminino : lista) {
+            Assert.assertEquals("Feminino", feminino.getGenero());
+        }
+    }
 
-        List<Pessoa> listaFeminina = new Pessoa().listaPessoas();
-        Assert.assertEquals("Feminino", listaFeminina.stream().filter(pessoa -> pessoa.getGenero().equals("Feminino")));
+    @Test
+    public void testando2() {
+        List<Pessoa> listaFeminino = new Pessoa().listaFeminino();
+        for (Pessoa feminino : listaFeminino) {
+            Assert.assertEquals("Feminino", feminino.getGenero());
+        }
     }
 }
